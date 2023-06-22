@@ -31,6 +31,8 @@ RUN  cd icarus && \
   wget https://scisoft.fnal.gov/scisoft/packages/icarus_data/v09_71_00/icarus_data-09.71.00-noarch.tar.bz2 && \
   tar -xf icarus_data*.tar.bz2 -C products/ && \
   rm *tar.bz2 && \
+  wget https://scisoft.fnal.gov/scisoft/packages/castxml/v0_4_2/castxml-0.4.2-sl7-x86_64.tar.bz2 && \
+  tar -xvf castxml*.tar.bz2 -C products/ && \
   wget https://scisoft.fnal.gov/scisoft/packages/srproxy/v00_42/srproxy-00.42-noarch-py3913.tar.bz2 && \
   tar -xvf srproxy*.tar.bz2 -C products/ && \
   wget https://scisoft.fnal.gov/scisoft/packages/sbndata/v01_04/sbndata-01.04-noarch.tar.bz2 && \
