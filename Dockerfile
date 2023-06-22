@@ -25,10 +25,12 @@ RUN  cd icarus && \
   wget http://scisoft.fnal.gov/scisoft/bundles/tools/pullProducts && \
   chmod +x pullProducts && \
   ./pullProducts products/ slf7 sbn-${sbncode_version} e20 prof && \
+  rm *tar.bz2 && \
   ./pullProducts products/ slf7 icarus-${icaruscode_version} e20 prof && \
   rm *tar.bz2 && \
   wget https://scisoft.fnal.gov/scisoft/packages/icarus_data/v09_71_00/icarus_data-09.71.00-noarch.tar.bz2 && \
   tar -xf icarus_data*.tar.bz2 -C products/ && \
+  rm *tar.bz2 && \
   wget https://scisoft.fnal.gov/scisoft/packages/srproxy/v00_42/srproxy-00.42-noarch-py3913.tar.bz2 && \
   tar -xvf srproxy*.tar.bz2 -C products/ && \
   wget https://scisoft.fnal.gov/scisoft/packages/sbndata/v01_04/sbndata-01.04-noarch.tar.bz2 && \
