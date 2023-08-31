@@ -8,8 +8,8 @@ LABEL Maintainer: Tracy Usher
 #RUN git --version
 
 # Set the versions for code
-ENV sbncode_version='v09_75_01_01'
-ENV icaruscode_version='v09_75_01_01'
+ENV sbncode_version='v09_78_02'
+ENV icaruscode_version='v09_78_02'
 #ENV icarusalg='v09_75_01'
 #ENV icarusutil='v09_75_00'
 #ENV icarus_signal_processing='v09_75_00'
@@ -28,7 +28,7 @@ RUN  cd icarus && \
   rm *tar.bz2 && \
   ./pullProducts products/ slf7 icarus-${icaruscode_version} e20 prof && \
   rm *tar.bz2 && \
-  wget https://scisoft.fnal.gov/scisoft/packages/icarus_data/v09_71_00/icarus_data-09.71.00-noarch.tar.bz2 && \
+  wget https://scisoft.fnal.gov/scisoft/packages/icarus_data/v09_78_00/icarus_data-09.78.00-noarch.tar.bz2 && \
   tar -xf icarus_data*.tar.bz2 -C products/ && \
   rm *tar.bz2 && \
   wget https://scisoft.fnal.gov/scisoft/packages/castxml/v0_4_2/castxml-0.4.2-sl7-x86_64.tar.bz2 && \
