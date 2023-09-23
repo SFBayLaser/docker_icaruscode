@@ -1,7 +1,7 @@
 #
 # Dockerfile for building image for icaruscode
 #
-FROM sfbaylaser/slf7-essentials:latest
+FROM sfbaylaser/docker_larsoft:latest
 #FROM slf7-essentials:latest
 LABEL Maintainer: Tracy Usher
 
@@ -10,14 +10,14 @@ LABEL Maintainer: Tracy Usher
 # Set the versions for code
 ENV sbncode_version='v09_78_02'
 ENV icaruscode_version='v09_78_02'
-#ENV icarusalg='v09_75_01'
-#ENV icarusutil='v09_75_00'
-#ENV icarus_signal_processing='v09_75_00'
+
+# Set up LArSoft
+RUN /larsoft/products/setup
 
 # Start by downloading the full necessary code stack
 RUN mkdir icarus && mkdir icarus/products
 
-COPY setup icarus/products/.
+#COPY setup icarus/products/.
 COPY larcv2.tar.bz2 icarus/
 
 RUN  cd icarus && \
@@ -28,11 +28,9 @@ RUN  cd icarus && \
   rm *tar.bz2 && \
   ./pullProducts products/ slf7 icarus-${icaruscode_version} e20 prof && \
   rm *tar.bz2 && \
-  wget https://scisoft.fnal.gov/scisoft/packages/icarus_data/v09_78_00/icarus_data-09.78.00-noarch.tar.bz2 && \
+  wget https://scisoft.fnal.gov/scisoft/packages/icarus_data/v09_79_02/icarus_data-09.79.02-noarch.tar.bz2 && \
   tar -xf icarus_data*.tar.bz2 -C products/ && \
   rm *tar.bz2 && \
-  wget https://scisoft.fnal.gov/scisoft/packages/castxml/v0_4_2/castxml-0.4.2-sl7-x86_64.tar.bz2 && \
-  tar -xvf castxml*.tar.bz2 -C products/ && \
   wget https://scisoft.fnal.gov/scisoft/packages/srproxy/v00_42/srproxy-00.42-noarch-py3913.tar.bz2 && \
   tar -xvf srproxy*.tar.bz2 -C products/ && \
   wget https://scisoft.fnal.gov/scisoft/packages/sbndata/v01_04/sbndata-01.04-noarch.tar.bz2 && \
