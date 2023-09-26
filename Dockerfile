@@ -8,8 +8,8 @@ LABEL Maintainer: Tracy Usher
 #RUN git --version
 
 # Set the versions for code
-ENV sbncode_version='v09_78_02'
-ENV icaruscode_version='v09_78_02'
+ENV sbncode_version='v09_78_04'
+ENV icaruscode_version='v09_78_04'
 
 # Set up LArSoft
 RUN /larsoft/products/setup
@@ -45,5 +45,5 @@ RUN cd / && source icarus/products/setup && \
   setup icaruscode ${icaruscode_version} -q e20:prof && \
   pip install --upgrade pip && \
   python -m pip install PyQt5 pyqtgraph && \
-  pip install uproot awkward pandas matplotlib \
-              plotly jupyterlab scipy pywavelets
+  python -m pip install uproot awkward pandas matplotlib \
+                        plotly jupyterlab scipy pywavelets
